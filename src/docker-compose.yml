@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  braidorental.api:
+    image: ${DOCKER_REGISTRY-}braidorentalapi
+    build:
+      context: .
+      dockerfile: BraidoRental.API/Dockerfile

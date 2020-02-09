@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Domain\BraidoRental.Core.Domain\BraidoRental.Core.Domain.csproj" />
+    <ProjectReference Include="..\Domain\BraidoRental.Services.Estoque.Domain\BraidoRental.Services.Estoque.Domain.csproj" />
+    <ProjectReference Include="..\Domain\BraidoRental.Services.Faturamento.Domain\BraidoRental.Services.Faturamento.Domain.csproj" />
+    <ProjectReference Include="..\Domain\BraidoRental.Services.Locadora.Domain\BraidoRental.Services.Locadora.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
