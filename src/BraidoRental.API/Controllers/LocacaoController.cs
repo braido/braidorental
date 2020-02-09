@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 namespace BraidoRental.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class LocacaoController : ControllerBase
     {
         private readonly ILogger<LocacaoController> _logger;
@@ -32,7 +32,7 @@ namespace BraidoRental.API.Controllers
             return Ok(carros);
         }
 
-        [HttpGet]
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<CarroLocacao>> Obter(int id)
         {
             var carro = _locacaoService.ObterCarro(id);
@@ -47,7 +47,7 @@ namespace BraidoRental.API.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("realizaragendamento")]
         public async Task<ActionResult<Agendamento>> RealizarAgendamento(AgendamentoModel model)
         {
             try
@@ -62,7 +62,7 @@ namespace BraidoRental.API.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("simularagendamento")]
         public async Task<ActionResult<Agendamento>> SimularAgendamento(SimulacaoAgendamentoModel model)
         {
             var agendamento = _locacaoService.SimularAgendamento(model);
@@ -70,7 +70,7 @@ namespace BraidoRental.API.Controllers
             return Ok(agendamento);
         }
 
-        [HttpPost]
+        [HttpPost("realizarretirada")]
         public async Task<ActionResult<Agendamento>> RealizarRetiradaCarro(RetiradaModel model)
         {
             try
@@ -85,7 +85,7 @@ namespace BraidoRental.API.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("realizardevolucao")]
         public async Task<ActionResult<Agendamento>> RealizarDevolucaoaCarro(DevolucaoModel model)
         {
             try
@@ -98,6 +98,14 @@ namespace BraidoRental.API.Controllers
             {
                 return NotFound(ex.Message);
             }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<CarroLocacao>> Salvar(CarroLocacao carroLocacao)
+        {
+            carroLocacao = _locacaoService.SalvarCarro(carroLocacao);
+
+            return Ok(carroLocacao);
         }
     }
 }

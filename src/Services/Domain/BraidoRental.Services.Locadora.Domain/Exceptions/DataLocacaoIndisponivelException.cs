@@ -6,7 +6,7 @@ namespace BraidoRental.Services.Locadora.Domain.Exceptions
 {
    public class DataLocacaoIndisponivelException : Exception
     {
-        public DataLocacaoIndisponivelException() : base("Data selecionada pata locação indisponível")
+        public DataLocacaoIndisponivelException() : base("Data selecionada para locação indisponível")
         {
 
         }

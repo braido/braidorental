@@ -9,5 +9,7 @@ namespace BraidoRental.Services.Locadora.Domain.Contracts.Application
     public interface ICarroLocacaoRepository : IRepository<CarroLocacao>
     {
         IList<CarroLocacao> Listar();
+
+        CarroLocacao Obter(int id);
     }
 }

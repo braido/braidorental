@@ -10,10 +10,9 @@ using Microsoft.Extensions.Logging;
 namespace BraidoRental.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class EstoqueController : ControllerBase
     {
-        private readonly ILogger<EstoqueController> _logger;
         private readonly IEstoqueService _estoqueService;
 
         public EstoqueController(
@@ -30,7 +29,7 @@ namespace BraidoRental.API.Controllers
             return Ok(carros);
         }
 
-        [HttpGet]
+        [HttpGet("disponiveis")]
         public async Task<ActionResult<IList<Carro>>> ListarDisponiveis()
         {
             var carros = _estoqueService.ListarCarrosDisponiveis();
@@ -38,7 +37,7 @@ namespace BraidoRental.API.Controllers
             return Ok(carros);
         }
 
-        [HttpGet]
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<Carro>> Obter(int id)
         {
             var carro = _estoqueService.ObterCarro(id);

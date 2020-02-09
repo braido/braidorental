@@ -25,9 +25,10 @@ namespace BraidoRental.Services.Infrastructure.EntityConfigurations
                 .HasColumnName("ValorDiario")
                 .IsRequired();
 
-            builder.HasOne(x => x.Carro)
-                .WithOne()
-                .IsRequired();
+            builder.HasOne(x => x.Carro);
+
+            builder.HasMany(x => x.Agendamentos)
+                .WithOne(x => x.CarroLocacao);
         }
 
     }

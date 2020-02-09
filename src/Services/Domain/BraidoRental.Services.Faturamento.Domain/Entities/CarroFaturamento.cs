@@ -16,6 +16,10 @@ namespace BraidoRental.Services.Faturamento.Domain.Entities
 
         public decimal ValorTotalLocacao { get; protected set; }
 
+        public CarroFaturamento()
+        {    
+        }
+
         public CarroFaturamento(CarroLocacao carro, Cliente cliente, decimal valor)
         {
             CarroLocacao = carro;

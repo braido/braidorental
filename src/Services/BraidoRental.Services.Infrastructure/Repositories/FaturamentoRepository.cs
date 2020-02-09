@@ -4,6 +4,7 @@ using BraidoRental.Services.Faturamento.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,28 +12,28 @@ namespace BraidoRental.Services.Infrastructure.Repositories
 {
     public class FaturamentoRepository : Repository<CarroFaturamento>, IFaturamentoRepository
     {
-        public FaturamentoRepository(UnitOfWork unitOfWork) : base(unitOfWork)
+        public FaturamentoRepository(BraidoRentalContext context) : base(context)
         {
         }
 
-        public async Task<IList<CarroFaturamento>> Listar()
+        public IList<CarroFaturamento> Listar()
         {
-            return await Query().Include(x => x.Cliente).Include(x => x.CarroLocacao).ThenInclude(x => x.Carro).ToListAsync();
+            return Query().Include(x => x.Cliente).Include(x => x.CarroLocacao).ThenInclude(x => x.Carro).ToList();
         }
 
-        public async Task<IList<CarroFaturamento>> ListarPorCarro(int idCarroLocacao)
+        public  IList<CarroFaturamento> ListarPorCarro(int idCarroLocacao)
         {
-            return await Query(x => x.CarroLocacao.Id == idCarroLocacao).Include(x => x.Cliente).Include(x => x.CarroLocacao).ThenInclude(x => x.Carro).ToListAsync();
+            return Query(x => x.CarroLocacao.Id == idCarroLocacao).Include(x => x.Cliente).Include(x => x.CarroLocacao).ThenInclude(x => x.Carro).ToList();
         }
 
-        public async Task<IList<CarroFaturamento>> ListarPorCliente(int idCliente)
+        public  IList<CarroFaturamento>ListarPorCliente(int idCliente)
         {
-            return await Query(x => x.Cliente.Id == idCliente).Include(x => x.Cliente).Include(x => x.CarroLocacao).ThenInclude(x => x.Carro).ToListAsync();
+            return Query(x => x.Cliente.Id == idCliente).Include(x => x.Cliente).Include(x => x.CarroLocacao).ThenInclude(x => x.Carro).ToList();
         }
 
-        public async Task<IList<CarroFaturamento>> ListarPorPeriodo(DateTime dataInicio, DateTime dataFim)
+        public IList<CarroFaturamento> ListarPorPeriodo(DateTime dataInicio, DateTime dataFim)
         {
-            return await Query(x => dataInicio <= x.Data && x.Data <= dataFim).Include(x => x.Cliente).Include(x => x.CarroLocacao).ThenInclude(x => x.Carro).ToListAsync();
+            return Query(x => dataInicio <= x.Data && x.Data <= dataFim).Include(x => x.Cliente).Include(x => x.CarroLocacao).ThenInclude(x => x.Carro).ToList();
         }
 
     }

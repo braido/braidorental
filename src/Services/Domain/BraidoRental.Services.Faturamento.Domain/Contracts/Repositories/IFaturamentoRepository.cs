@@ -9,12 +9,12 @@ namespace BraidoRental.Services.Faturamento.Domain.Contracts.Repositories
 {
     public interface IFaturamentoRepository : IRepository<CarroFaturamento>
     {
-        Task<IList<CarroFaturamento>> Listar();
+        IList<CarroFaturamento> Listar();
 
-        Task<IList<CarroFaturamento>> ListarPorCarro(int idCarroLocacao);
+        IList<CarroFaturamento> ListarPorCarro(int idCarroLocacao);
 
-        Task<IList<CarroFaturamento>> ListarPorCliente(int idCliente);
+        IList<CarroFaturamento> ListarPorCliente(int idCliente);
 
-        Task<IList<CarroFaturamento>> ListarPorPeriodo(DateTime dataInicio, DateTime dataFim);
+        IList<CarroFaturamento> ListarPorPeriodo(DateTime dataInicio, DateTime dataFim);
     }
 }

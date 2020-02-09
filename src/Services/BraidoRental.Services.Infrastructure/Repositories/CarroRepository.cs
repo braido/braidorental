@@ -10,7 +10,7 @@ namespace BraidoRental.Services.Infrastructure.Repositories
 {
     public class CarroRepository : Repository<Carro>, ICarroRepository
     {
-        public CarroRepository(UnitOfWork unitOfWork) : base(unitOfWork)
+        public CarroRepository(BraidoRentalContext context) : base(context)
         {
         }
 

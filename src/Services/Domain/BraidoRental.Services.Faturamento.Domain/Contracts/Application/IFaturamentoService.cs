@@ -10,24 +10,24 @@ namespace BraidoRental.Services.Faturamento.Domain.Contracts.Application
 {
     public interface IFaturamentoService
     {
-        void Faturar(CarroLocacao carroLocacao, Cliente cliente, decimal valor);
+        CarroFaturamento Faturar(CarroLocacao carroLocacao, Cliente cliente, decimal valor);
 
-        Task<RelatorioFaturamentoCarroModel> FaturamentoPorCarro();
+        RelatorioFaturamentoCarroModel FaturamentoPorCarro();
 
-        Task<RelatorioFaturamentoAnaliticoModel> FaturamentoAnalitico();
+        RelatorioFaturamentoAnaliticoModel FaturamentoAnalitico();
 
-        Task<RelatorioFaturamentoAnaliticoModel> FaturamentoAnaliticoPorCarro(int idCarroLocacao);
+        RelatorioFaturamentoAnaliticoModel FaturamentoAnaliticoPorCarro(int idCarroLocacao);
 
-        Task<RelatorioFaturamentoAnaliticoModel> FaturamentoAnaliticoPorCliente(int idCliente);
+        RelatorioFaturamentoAnaliticoModel FaturamentoAnaliticoPorCliente(int idCliente);
 
-        Task<RelatorioFaturamentoAnaliticoModel> FaturamentoAnaliticoPorPeriodo(DateTime dataInicio, DateTime dataFim);
+        RelatorioFaturamentoAnaliticoModel FaturamentoAnaliticoPorPeriodo(DateTime dataInicio, DateTime dataFim);
 
-        Task<RelatorioFaturamentoSinteticoModel> FaturamentoSintetico();
+        RelatorioFaturamentoSinteticoModel FaturamentoSintetico();
 
-        Task<RelatorioFaturamentoSinteticoModel> FaturamentoSinteticoPorCarro(int idCarroLocacao);
+        RelatorioFaturamentoSinteticoModel FaturamentoSinteticoPorCarro(int idCarroLocacao);
 
-        Task<RelatorioFaturamentoSinteticoModel> FaturamentoSinteticoPorCliente(int idCliente);
+        RelatorioFaturamentoSinteticoModel FaturamentoSinteticoPorCliente(int idCliente);
 
-        Task<RelatorioFaturamentoSinteticoModel> FaturamentoSinteticoPorPeriodo(DateTime dataInicio, DateTime dataFim);
+        RelatorioFaturamentoSinteticoModel FaturamentoSinteticoPorPeriodo(DateTime dataInicio, DateTime dataFim);
     }
 }

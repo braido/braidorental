@@ -19,7 +19,7 @@ namespace BraidoRental.Services.Application.Services
         private readonly ICarroLocacaoRepository _carroLocacaoRepository;
         private readonly IAgendamentoRepository _agendamentoRepository;
         private readonly IEstoqueService _estoqueService;
-        private readonly IFaturamentoService _faturamentoService
+        private readonly IFaturamentoService _faturamentoService;
 
         public LocacaoService(
             IRepository<Cliente> clienteRepository,
@@ -37,7 +37,7 @@ namespace BraidoRental.Services.Application.Services
 
         public Agendamento RealizarAgendamento(AgendamentoModel model)
         {
-            var carroLocacao = _carroLocacaoRepository.FindById(model.IdCarro);
+            var carroLocacao = _carroLocacaoRepository.Obter(model.IdCarro);
 
             if (carroLocacao.VerificarDisponibilidadeParaLocacao(model.DataInicio, model.DataFim))
             {
@@ -76,7 +76,7 @@ namespace BraidoRental.Services.Application.Services
             }
             else
             {
-                var carroLocacao = _carroLocacaoRepository.FindById(model.IdCarro);
+                var carroLocacao = _carroLocacaoRepository.Obter(model.IdCarro);
                 var carro = _estoqueService.EfetuarRetirada(carroLocacao.Carro);
 
                 carroLocacao.Carro = carro;
@@ -100,7 +100,7 @@ namespace BraidoRental.Services.Application.Services
             }
             else
             {
-                var carroLocacao = _carroLocacaoRepository.FindById(model.IdCarro);
+                var carroLocacao = _carroLocacaoRepository.Obter(model.IdCarro);
                 var carro = _estoqueService.EfetuarDevolucao(carroLocacao.Carro);
 
                 carroLocacao.Carro = carro;
@@ -119,12 +119,12 @@ namespace BraidoRental.Services.Application.Services
 
         public CarroLocacao ObterCarro(int id)
         {
-            return _carroLocacaoRepository.FindById(id);
+            return _carroLocacaoRepository.Obter(id);
         }
 
         public Agendamento SimularAgendamento(SimulacaoAgendamentoModel model)
         {
-            var carroLocacao = _carroLocacaoRepository.FindById(model.IdCarro);
+            var carroLocacao = _carroLocacaoRepository.Obter(model.IdCarro);
                        
             var agendamento = new Agendamento()
             {
@@ -137,6 +137,24 @@ namespace BraidoRental.Services.Application.Services
 
             return agendamento;
         }
+
+        public CarroLocacao SalvarCarro(CarroLocacao carroLocacao)
+        {
+            try
+            {
+                carroLocacao = _carroLocacaoRepository.InsertOrUpdate(carroLocacao);
+
+                _carroLocacaoRepository.UnitOfWork.SaveChanges();
+
+                return carroLocacao;
+            }
+            catch(Exception ex)
+            {
+                _carroLocacaoRepository.UnitOfWork.UndoChanges();
+
+                throw ex;
+            }       
+        }
     }
 }
-}
+

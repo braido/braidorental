@@ -9,11 +9,11 @@ using System.Text;
 
 namespace BraidoRental.Services.Application.Services
 {
-    public class ClienteServices : IClienteService
+    public class ClienteService : IClienteService
     {
         private readonly IRepository<Cliente> _repository;
 
-        public ClienteServices(IRepository<Cliente> repository)
+        public ClienteService(IRepository<Cliente> repository)
         {
             _repository = repository;
         }
@@ -28,15 +28,15 @@ namespace BraidoRental.Services.Application.Services
             return _repository.FindById(id);
         }
 
-        public Cliente Salvar(Cliente Cliente)
+        public Cliente Salvar(Cliente cliente)
         {
             try
             {
-                Cliente = _repository.InsertOrUpdate(Cliente);
+                cliente = _repository.InsertOrUpdate(cliente);
 
                 _repository.UnitOfWork.SaveChanges();
 
-                return Cliente;
+                return cliente;
             }
             catch(Exception ex)
             {

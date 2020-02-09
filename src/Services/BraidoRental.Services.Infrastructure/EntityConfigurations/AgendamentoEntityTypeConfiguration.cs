@@ -33,12 +33,7 @@ namespace BraidoRental.Services.Infrastructure.EntityConfigurations
                 .HasDefaultValue(false)
                 .IsRequired();
 
-
             builder.HasOne(x => x.Cliente)
-                .WithMany()
-                .IsRequired();
-
-            builder.HasOne(x => x.CarroLocacao)
                 .WithMany()
                 .IsRequired();
         }

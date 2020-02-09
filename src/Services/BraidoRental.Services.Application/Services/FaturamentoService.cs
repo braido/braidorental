@@ -25,65 +25,65 @@ namespace BraidoRental.Services.Application.Services
             return _faturamentoRepository.Insert(faturamento);
         }
 
-        public async Task<RelatorioFaturamentoCarroModel> FaturamentoPorCarro()
+        public RelatorioFaturamentoCarroModel FaturamentoPorCarro()
         {
-            var faturamento = await _faturamentoRepository.Listar();
+            var faturamento =  _faturamentoRepository.Listar();
 
             return new RelatorioFaturamentoCarroModel(faturamento);
         }
 
-        public async Task<RelatorioFaturamentoAnaliticoModel> FaturamentoAnalitico()
+        public RelatorioFaturamentoAnaliticoModel FaturamentoAnalitico()
         {
-            var faturamento = await _faturamentoRepository.Listar();
+            var faturamento =  _faturamentoRepository.Listar();
 
             return new RelatorioFaturamentoAnaliticoModel(faturamento);
         }
 
-        public async Task<RelatorioFaturamentoAnaliticoModel> FaturamentoAnaliticoPorCarro(int idCarroLocacao)
+        public RelatorioFaturamentoAnaliticoModel FaturamentoAnaliticoPorCarro(int idCarroLocacao)
         {
-            var faturamento = await _faturamentoRepository.ListarPorCarro(idCarroLocacao);
+            var faturamento = _faturamentoRepository.ListarPorCarro(idCarroLocacao);
 
             return new RelatorioFaturamentoAnaliticoModel(faturamento);
         }
 
-        public async Task<RelatorioFaturamentoAnaliticoModel> FaturamentoAnaliticoPorCliente(int idCliente)
+        public RelatorioFaturamentoAnaliticoModel FaturamentoAnaliticoPorCliente(int idCliente)
         {
-            var faturamento = await _faturamentoRepository.ListarPorCliente(idCliente);
+            var faturamento = _faturamentoRepository.ListarPorCliente(idCliente);
 
             return new RelatorioFaturamentoAnaliticoModel(faturamento);
         }
 
-        public async Task<RelatorioFaturamentoAnaliticoModel> FaturamentoAnaliticoPorPeriodo(DateTime dataInicio, DateTime dataFim)
+        public RelatorioFaturamentoAnaliticoModel FaturamentoAnaliticoPorPeriodo(DateTime dataInicio, DateTime dataFim)
         {
-            var faturamento = await _faturamentoRepository.ListarPorPeriodo(dataInicio, dataFim);
+            var faturamento =  _faturamentoRepository.ListarPorPeriodo(dataInicio, dataFim);
 
             return new RelatorioFaturamentoAnaliticoModel(faturamento);
         }
 
-        public async Task<RelatorioFaturamentoSinteticoModel> FaturamentoSintetico()
+        public RelatorioFaturamentoSinteticoModel FaturamentoSintetico()
         {
-            var faturamento = await _faturamentoRepository.Listar();
+            var faturamento =  _faturamentoRepository.Listar();
 
             return new RelatorioFaturamentoSinteticoModel(faturamento);
         }
 
-        public async Task<RelatorioFaturamentoSinteticoModel> FaturamentoSinteticoPorCarro(int idCarroLocacao)
+        public RelatorioFaturamentoSinteticoModel FaturamentoSinteticoPorCarro(int idCarroLocacao)
         {
-            var faturamento = await _faturamentoRepository.ListarPorCarro(idCarroLocacao);
+            var faturamento =  _faturamentoRepository.ListarPorCarro(idCarroLocacao);
 
             return new RelatorioFaturamentoSinteticoModel(faturamento);
         }
 
-        public async Task<RelatorioFaturamentoSinteticoModel> FaturamentoSinteticoPorCliente(int idCliente)
+        public RelatorioFaturamentoSinteticoModel FaturamentoSinteticoPorCliente(int idCliente)
         {
-            var faturamento = await _faturamentoRepository.ListarPorCliente(idCliente);
+            var faturamento =  _faturamentoRepository.ListarPorCliente(idCliente);
 
             return new RelatorioFaturamentoSinteticoModel(faturamento);
         }
 
-        public async Task<RelatorioFaturamentoSinteticoModel> FaturamentoSinteticoPorPeriodo(DateTime dataInicio, DateTime dataFim)
+        public RelatorioFaturamentoSinteticoModel FaturamentoSinteticoPorPeriodo(DateTime dataInicio, DateTime dataFim)
         {
-            var faturamento = await _faturamentoRepository.ListarPorPeriodo(dataInicio, dataFim);
+            var faturamento = _faturamentoRepository.ListarPorPeriodo(dataInicio, dataFim);
 
             return new RelatorioFaturamentoSinteticoModel(faturamento);
         }

@@ -5,7 +5,7 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>56d10f62-a18b-4095-b958-6f131f8e321a</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/weatherforecast</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/api</DockerServiceUrl>
     <DockerServiceName>braidorental.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

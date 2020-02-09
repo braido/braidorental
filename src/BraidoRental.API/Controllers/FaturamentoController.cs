@@ -12,10 +12,9 @@ using Microsoft.Extensions.Logging;
 namespace BraidoRental.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class FaturamentoController : ControllerBase
     {
-        private readonly ILogger<ClienteController> _logger;
         private readonly IFaturamentoService _faturamentoService;
 
         public FaturamentoController(
@@ -24,16 +23,16 @@ namespace BraidoRental.API.Controllers
             _faturamentoService = faturamentoService;
         }
 
-        [HttpGet]
+        [HttpGet("relfaturamentoporcarro")]
         public async Task<ActionResult<RelatorioFaturamentoCarroModel>> RelatorioFaturamentoPorCarro()
         {
-            return await _faturamentoService.FaturamentoPorCarro();
+            return _faturamentoService.FaturamentoPorCarro();
         }
 
-        [HttpGet]
+        [HttpGet("relfaturamentoanalitico")]
         public async Task<ActionResult<RelatorioFaturamentoAnaliticoModel>> RelatorioFaturamentoAnalitico()
         {
-            return await _faturamentoService.FaturamentoAnalitico();
+            return _faturamentoService.FaturamentoAnalitico();
         }
     }
 }

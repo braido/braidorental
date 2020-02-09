@@ -12,7 +12,7 @@ namespace BraidoRental.Services.Infrastructure.Repositories
 {
     public class AgendamentoRepository : Repository<Agendamento>, IAgendamentoRepository
     {
-        public AgendamentoRepository(UnitOfWork unitOfWork) : base(unitOfWork)
+        public AgendamentoRepository(BraidoRentalContext context) : base(context)
         {
         }
 
@@ -23,8 +23,8 @@ namespace BraidoRental.Services.Infrastructure.Repositories
             return Query(x =>
                 x.CarroLocacao.Id == idCarroLocacao &&
                 x.Cliente.Id == idCliente &&
-                x.DataInicio > agora &&
-                x.DataFim < agora &&
+                x.DataInicio < agora &&
+                x.DataFim > agora &&
                 x.CarroComCliente).FirstOrDefault();
         }
 
@@ -35,8 +35,8 @@ namespace BraidoRental.Services.Infrastructure.Repositories
             return Query(x =>
                 x.CarroLocacao.Id == idCarroLocacao &&
                 x.Cliente.Id == idCliente &&
-                x.DataInicio > agora &&
-                x.DataFim < agora &&
+                x.DataInicio < agora &&
+                x.DataFim > agora &&
                 !x.CarroComCliente).FirstOrDefault();
         }
     }

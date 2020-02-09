@@ -1,6 +1,7 @@
 ﻿using BraidoRental.Core.Domain.Contract.Repository;
 using BraidoRental.Core.Infrastructure.Repository;
 using BraidoRental.Services.Estoque.Domain.Entities;
+using BraidoRental.Services.Faturamento.Domain.Entities;
 using BraidoRental.Services.Infrastructure.EntityConfigurations;
 using BraidoRental.Services.Locadora.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ namespace BraidoRental.Services.Infrastructure
 
         public DbSet<Cliente> Clientes { get; set; }
 
+        public DbSet<CarroFaturamento> CarroFaturamentos { get; set; }
 
         public BraidoRentalContext(DbContextOptions<BraidoRentalContext> options) : base(options)
         {
@@ -34,6 +36,7 @@ namespace BraidoRental.Services.Infrastructure
             builder.ApplyConfiguration(new CarroLocacaoEntityTypeConfiguration());
             builder.ApplyConfiguration(new ClienteEntityTypeConfiguration());
             builder.ApplyConfiguration(new AgendamentoEntityTypeConfiguration());
+            builder.ApplyConfiguration(new CarroFaturamentoEntityTypeConfiguration());
         }
     }
 
@@ -49,7 +52,7 @@ namespace BraidoRental.Services.Infrastructure
 
             var connectionString = configuration["ConnectionString"];
             var optionsBuilder = new DbContextOptionsBuilder<BraidoRentalContext>()
-                .UseMySQL(connectionString);
+                .UseSqlServer(connectionString);
 
             return new BraidoRentalContext(optionsBuilder.Options);
         }

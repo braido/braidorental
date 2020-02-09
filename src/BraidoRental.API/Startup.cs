@@ -16,7 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using MySql.Data.EntityFrameworkCore.Extensions;
+using Newtonsoft.Json;
 
 namespace BraidoRental.API
 {
@@ -32,14 +32,13 @@ namespace BraidoRental.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddFluentValidation();
+            services.AddControllers().AddNewtonsoftJson(o => o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
-            services.AddEntityFrameworkMySQL()
+            services.AddEntityFrameworkSqlServer()
               .AddDbContext<BraidoRentalContext>(options =>
               {
-                  options.UseMySQL(Configuration["ConnectionString"],
-                                       sqlOptions => sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().
-                                                                                            Assembly.GetName().Name));
+                  options.UseSqlServer(Configuration["ConnectionString"],
+                                       sqlOptions => sqlOptions.MigrationsAssembly("BraidoRental.Services.Infrastructure"));
               });
         }
 

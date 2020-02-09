@@ -12,13 +12,18 @@ namespace BraidoRental.Services.Infrastructure.Repositories
 {
     public class CarroLocacaoRepository : Repository<CarroLocacao>, ICarroLocacaoRepository
     {
-        public CarroLocacaoRepository(UnitOfWork unitOfWork) : base(unitOfWork)
+        public CarroLocacaoRepository(BraidoRentalContext context) : base(context)
         {
         }
 
         public IList<CarroLocacao> Listar()
         {
-            return Query().Include(x => x.Carro).ToList();
+            return Query().Include(x => x.Agendamentos).Include(x => x.Carro).ToList();
+        }
+
+        public CarroLocacao Obter(int id)
+        {
+            return Query(x => x.Id == id).Include(x => x.Agendamentos).Include(x => x.Carro).FirstOrDefault();
         }
     }
 }

@@ -14,5 +14,6 @@ namespace BraidoRental.Services.Locadora.Domain.Contracts.Application
         void RealizarDevolucaoaCarro(DevolucaoModel model);
         CarroLocacao ObterCarro(int id);
         Agendamento SimularAgendamento(SimulacaoAgendamentoModel model);
+        CarroLocacao SalvarCarro(CarroLocacao carroLocacao);
     }
 }

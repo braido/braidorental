@@ -12,10 +12,9 @@ using Microsoft.Extensions.Logging;
 namespace BraidoRental.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ClienteController : ControllerBase
     {
-        private readonly ILogger<ClienteController> _logger;
         private readonly IClienteService _clienteService;
 
         public ClienteController(
@@ -32,7 +31,7 @@ namespace BraidoRental.API.Controllers
             return Ok(clientes);
         }
 
-        [HttpGet]
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<Cliente>> Obter(int id)
         {
             var cliente = _clienteService.Obter(id);
@@ -47,6 +46,7 @@ namespace BraidoRental.API.Controllers
             }
         }
 
+        [HttpPost]
         public async Task<ActionResult<Cliente>> Salvar(Cliente cliente)
         {
             cliente = _clienteService.Salvar(cliente);
