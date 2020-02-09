@@ -43,7 +43,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BraidoRental.Services.Estoq
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BraidoRental.Services.Faturamento.Domain.UnitTests", "Services\Domain\BraidoRental.Services.Faturamento.Domain.UnitTests\BraidoRental.Services.Faturamento.Domain.UnitTests.csproj", "{4A4CB246-8FD4-40FB-B1F0-28A76AE82CCB}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{56D10F62-A18B-4095-B958-6F131F8E321A}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0C52FF17-3991-45E4-A04E-CFDB9C2D73D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraidoRental.Web", "BraidoRental.Web\BraidoRental.Web.csproj", "{8319DCF8-8960-4534-B90D-AC511856C7E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,10 +101,14 @@ Global
 		{4A4CB246-8FD4-40FB-B1F0-28A76AE82CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A4CB246-8FD4-40FB-B1F0-28A76AE82CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A4CB246-8FD4-40FB-B1F0-28A76AE82CCB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56D10F62-A18B-4095-B958-6F131F8E321A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56D10F62-A18B-4095-B958-6F131F8E321A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56D10F62-A18B-4095-B958-6F131F8E321A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56D10F62-A18B-4095-B958-6F131F8E321A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C52FF17-3991-45E4-A04E-CFDB9C2D73D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C52FF17-3991-45E4-A04E-CFDB9C2D73D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C52FF17-3991-45E4-A04E-CFDB9C2D73D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C52FF17-3991-45E4-A04E-CFDB9C2D73D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8319DCF8-8960-4534-B90D-AC511856C7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8319DCF8-8960-4534-B90D-AC511856C7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8319DCF8-8960-4534-B90D-AC511856C7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8319DCF8-8960-4534-B90D-AC511856C7E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,6 +133,7 @@ Global
 		{A0B2AEA9-084E-4DF6-9856-8FABF4AC0559} = {B5F2E27E-D490-4091-BC86-777721BE646D}
 		{FE858D56-B4AD-46D3-A98A-2FF2C1A79155} = {48BDBF65-1CDC-44B2-995A-696AC6644E59}
 		{4A4CB246-8FD4-40FB-B1F0-28A76AE82CCB} = {48BDBF65-1CDC-44B2-995A-696AC6644E59}
+		{8319DCF8-8960-4534-B90D-AC511856C7E8} = {964C3CCC-5085-4030-A01C-CD70D13E4C8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C5BD85D-1F31-409B-9525-2867CC5D95A4}
