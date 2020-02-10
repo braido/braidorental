@@ -22,7 +22,7 @@ services:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
         
   web:
-    image: braido/braidorental-web
+    image: braidorentalweb
     ports:
-        - 3000:3000
+        - 3000:80
 
