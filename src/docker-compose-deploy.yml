@@ -10,7 +10,7 @@ services:
       - 1433:1433
       
   api:
-    image: braidorentalapi
+    image: braido/braidorental-api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
@@ -22,7 +22,7 @@ services:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
         
   web:
-    image: braidorentalweb
+    image: braido/braidorental-web
     ports:
         - 3000:80
 
