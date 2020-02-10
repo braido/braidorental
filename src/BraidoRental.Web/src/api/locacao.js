@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const addCarro = (carro) => {
-    return axios.post('https://localhost:32794/api/locacao/',
+    return axios.post('https://localhost:32743/api/locacao/',
         {
             Id: carro.id ?? 0,
             Carro: carro.id ? undefined : {
@@ -15,7 +15,7 @@ const addCarro = (carro) => {
 }
 
 const listCarro = () => {
-    return axios.get('https://localhost:32794/api/locacao/')
+    return axios.get('https://localhost:32743/api/locacao/')
         .then(res => {
             let data = res.data;
             let objeto = data.objeto.map(x => {
@@ -27,12 +27,12 @@ const listCarro = () => {
 }
 
 const getCarro = (id) => {
-    return axios.get('https://localhost:32794/api/locacao/id/'+ id )
+    return axios.get('https://localhost:32743/api/locacao/id/'+ id )
         .then(res => res.data);
 }
 
 const realizarAgendamento = (locacao, carro) => {
-    return axios.post('https://localhost:32794/api/locacao/realizaragendamento',
+    return axios.post('https://localhost:32743/api/locacao/realizaragendamento',
         {
             IdCarro: carro.id,
             IdCliente: 1,
@@ -43,7 +43,7 @@ const realizarAgendamento = (locacao, carro) => {
 }
 
 const simularAgendamento = (locacao, carro) => {
-    return axios.post('https://localhost:32794/api/locacao/simularagendamento',
+    return axios.post('https://localhost:32743/api/locacao/simularagendamento',
         {
             IdCarro: carro.id,
             DataInicio: locacao.dataInicio,

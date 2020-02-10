@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const addCliente = (cliente) => {
-    return axios.post('https://localhost:32794/api/cliente/',
+    return axios.post('https://localhost:32743/api/cliente/',
         {
             Id: cliente.id ?? 0,
             Nome: cliente.nome,
@@ -12,7 +12,7 @@ const addCliente = (cliente) => {
 }
 
 const listCliente = () => {
-    return axios.get('https://localhost:32794/api/cliente/')
+    return axios.get('https://localhost:32743/api/cliente/')
         .then(res => res.data);
 }
 
