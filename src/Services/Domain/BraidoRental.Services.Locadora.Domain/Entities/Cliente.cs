@@ -12,6 +12,5 @@ namespace BraidoRental.Services.Locadora.Domain.Entities
         public string Email { get; set; }
 
         public string CPF { get; set; }
-
     }
 }

@@ -16,6 +16,7 @@ namespace BraidoRental.Services.Faturamento.Domain.Model
                 x => new FaturamentoCarroModel()
                 {
                     Carro = x.Key,
+                    Quantidade = x.Count(),
                     ValorFaturado = x.Sum(y => y.ValorTotalLocacao)
                 });
 

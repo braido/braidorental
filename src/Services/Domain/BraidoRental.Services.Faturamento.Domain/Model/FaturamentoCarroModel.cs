@@ -11,6 +11,8 @@ namespace BraidoRental.Services.Faturamento.Domain.Model
     {
         public CarroLocacao Carro { get; set; }
 
+        public int Quantidade { get; set; }
+
         public decimal ValorFaturado { get; set; }
 
     }

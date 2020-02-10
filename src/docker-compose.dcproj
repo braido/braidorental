@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>0c52ff17-3991-45e4-a04e-cfdb9c2d73d5</ProjectGuid>
+    <ProjectGuid>448c1f26-156d-481d-9035-fbd82e6b4e15</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/weatherforecast</DockerServiceUrl>
     <DockerServiceName>braidorental.api</DockerServiceName>

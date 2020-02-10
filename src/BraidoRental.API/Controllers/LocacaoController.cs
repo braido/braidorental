@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BraidoRental.API.Infrastructure;
 using BraidoRental.Services.Locadora.Domain.Contracts.Application;
 using BraidoRental.Services.Locadora.Domain.Entities;
 using BraidoRental.Services.Locadora.Domain.Exceptions;
@@ -29,7 +30,7 @@ namespace BraidoRental.API.Controllers
         {
             var carros = _locacaoService.ListarCarros();
 
-            return Ok(carros);
+            return Ok(ResponseObject.SucessoObj(carros));
         }
 
         [HttpGet("id/{id}")]
@@ -39,11 +40,11 @@ namespace BraidoRental.API.Controllers
 
             if (carro != null)
             {
-                return Ok(carro);
+                return Ok(ResponseObject.SucessoObj(carro));
             }
             else
             {
-                return NotFound(id);
+                return NotFound(ResponseObject.FalhaMsg);
             }
         }
 
@@ -54,11 +55,11 @@ namespace BraidoRental.API.Controllers
             {
                 var agendamento = _locacaoService.RealizarAgendamento(model);
 
-                return Ok(agendamento);
+                return Ok(ResponseObject.SucessoObj(agendamento));
             }
             catch (DataLocacaoIndisponivelException ex)
             {
-                return NotFound(ex.Message);
+                return NotFound(ResponseObject.FalhaMsgCustom(ex.Message));
             }
         }
 
@@ -67,7 +68,7 @@ namespace BraidoRental.API.Controllers
         {
             var agendamento = _locacaoService.SimularAgendamento(model);
 
-            return Ok(agendamento);
+            return Ok(ResponseObject.SucessoObj(agendamento));
         }
 
         [HttpPost("realizarretirada")]
@@ -77,11 +78,11 @@ namespace BraidoRental.API.Controllers
             {
                 _locacaoService.RealizarRetiradaCarro(model);
 
-                return Ok();
+                return Ok(ResponseObject.SucessoMsg);
             }
             catch (DataLocacaoIndisponivelException ex)
             {
-                return NotFound(ex.Message);
+                return NotFound(ResponseObject.FalhaMsgCustom(ex.Message));
             }
         }
 
@@ -92,7 +93,7 @@ namespace BraidoRental.API.Controllers
             {
                 _locacaoService.RealizarDevolucaoaCarro(model);
 
-                return Ok();
+                return Ok(ResponseObject.SucessoMsg);
             }
             catch (DataLocacaoIndisponivelException ex)
             {
@@ -105,7 +106,7 @@ namespace BraidoRental.API.Controllers
         {
             carroLocacao = _locacaoService.SalvarCarro(carroLocacao);
 
-            return Ok(carroLocacao);
+            return Ok(ResponseObject.SucessoObj(carroLocacao));
         }
     }
 }

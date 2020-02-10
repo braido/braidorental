@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BraidoRental.API.Infrastructure;
 using BraidoRental.Services.Estoque.Domain.Contracts.Application;
 using BraidoRental.Services.Estoque.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,7 @@ namespace BraidoRental.API.Controllers
         {
             var carros = _estoqueService.ListarCarros();
 
-            return Ok(carros);
+            return Ok(ResponseObject.SucessoObj(carros));
         }
 
         [HttpGet("disponiveis")]
@@ -34,7 +35,7 @@ namespace BraidoRental.API.Controllers
         {
             var carros = _estoqueService.ListarCarrosDisponiveis();
 
-            return Ok(carros);
+            return Ok(ResponseObject.SucessoObj(carros));
         }
 
         [HttpGet("id/{id}")]
@@ -44,11 +45,11 @@ namespace BraidoRental.API.Controllers
 
             if (carro != null)
             {
-                return Ok(carro);
+                return Ok(ResponseObject.SucessoObj(carro));
             }
             else
             {
-                return NotFound(id);
+                return NotFound(ResponseObject.FalhaMsg);
             }
         }
     }

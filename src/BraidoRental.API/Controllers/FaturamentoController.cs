@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BraidoRental.API.Infrastructure;
 using BraidoRental.Services.Faturamento.Domain.Contracts.Application;
 using BraidoRental.Services.Faturamento.Domain.Model;
 using BraidoRental.Services.Locadora.Domain.Contracts.Application;
@@ -26,13 +27,13 @@ namespace BraidoRental.API.Controllers
         [HttpGet("relfaturamentoporcarro")]
         public async Task<ActionResult<RelatorioFaturamentoCarroModel>> RelatorioFaturamentoPorCarro()
         {
-            return _faturamentoService.FaturamentoPorCarro();
+            return Ok(ResponseObject.SucessoObj( _faturamentoService.FaturamentoPorCarro()));
         }
 
         [HttpGet("relfaturamentoanalitico")]
         public async Task<ActionResult<RelatorioFaturamentoAnaliticoModel>> RelatorioFaturamentoAnalitico()
         {
-            return _faturamentoService.FaturamentoAnalitico();
+            return Ok(ResponseObject.SucessoObj(_faturamentoService.FaturamentoAnalitico()));
         }
     }
 }

@@ -34,8 +34,7 @@ namespace BraidoRental.Services.Infrastructure.EntityConfigurations
                 .IsRequired();
 
             builder.HasOne(x => x.Cliente)
-                .WithMany()
-                .IsRequired();
+                .WithMany();
         }
     }
 }

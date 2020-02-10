@@ -1,11 +1,9 @@
 version: '3.4'
 
 services:
-  braidorental.api:
-    image: ${DOCKER_REGISTRY-}braidorentalapi
-    build:
-      context: .
-      dockerfile: BraidoRental.API/Dockerfile
+  api:
+    image: braidorentalapi
+
   db:
     image: "mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04"
     environment:

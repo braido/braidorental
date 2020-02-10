@@ -8,19 +8,8 @@ namespace BraidoRental.Core.Domain.Entities
     public abstract class Entity<TId> : IEntity<TId> where TId : struct, IEquatable<TId>
     {
         int? _requestedHashCode;
-        TId _Id;
-
-        public virtual TId Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                _Id = value;
-            }
-        }
+ 
+        public virtual TId Id { get; set; }
 
         public bool IsTransient()
         {

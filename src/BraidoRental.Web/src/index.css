@@ -1,0 +1,15 @@
+button,
+.button {
+	margin-bottom: 0 !important;
+	margin-right: .5rem;
+}
+
+.menu {
+	text-align: center;
+	margin-top: 10px;
+	color: #fff !important
+}
+
+.menu button{
+	background-color: lightblue!important
+}

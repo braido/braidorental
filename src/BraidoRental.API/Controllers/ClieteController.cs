@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BraidoRental.API.Infrastructure;
 using BraidoRental.Services.Estoque.Domain.Contracts.Application;
 using BraidoRental.Services.Estoque.Domain.Entities;
 using BraidoRental.Services.Locadora.Domain.Contracts.Application;
@@ -28,7 +29,7 @@ namespace BraidoRental.API.Controllers
         {
             var clientes = _clienteService.Listar();
 
-            return Ok(clientes);
+            return Ok(ResponseObject.SucessoObj(clientes));
         }
 
         [HttpGet("id/{id}")]
@@ -38,11 +39,11 @@ namespace BraidoRental.API.Controllers
 
             if (cliente != null)
             {
-                return Ok(cliente);
+                return Ok(ResponseObject.SucessoObj(cliente));
             }
             else
             {
-                return NotFound(id);
+                return NotFound(ResponseObject.FalhaMsg);
             }
         }
 
@@ -51,7 +52,7 @@ namespace BraidoRental.API.Controllers
         {
             cliente = _clienteService.Salvar(cliente);
 
-            return Ok(cliente);
+            return Ok(ResponseObject.SucessoObj(cliente));
         }
-}
+    }
 }
